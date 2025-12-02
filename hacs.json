@@ -1,0 +1,8 @@
+{
+  "name": "Huckleberry Baby Tracker",
+  "content_in_root": false,
+  "filename": "huckleberry.zip",
+  "domains": ["sensor", "binary_sensor", "switch"],
+  "homeassistant": "2023.6.2",
+  "render_readme": true
+}

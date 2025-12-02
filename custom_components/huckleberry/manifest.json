@@ -1,0 +1,11 @@
+{
+  "domain": "huckleberry",
+  "name": "Huckleberry Baby Tracker",
+  "codeowners": ["@Woyken"],
+  "config_flow": true,
+  "documentation": "https://github.com/Woyken/huckleberry-homeassistant",
+  "issue_tracker": "https://github.com/Woyken/huckleberry-homeassistant/issues",
+  "requirements": ["huckleberry-api>=0.1.2"],
+  "iot_class": "cloud_push",
+  "version": "2.0.0"
+}

@@ -1,0 +1,23 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Huckleberry",
+        "description": "Enter your Huckleberry account credentials",
+        "data": {
+          "email": "Email",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Huckleberry. Please check your network connection.",
+      "invalid_auth": "Invalid email or password. Please check your credentials.",
+      "no_children": "No children found in your Huckleberry account.",
+      "unknown": "Unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This Huckleberry account is already configured."
+    }
+  }
+}

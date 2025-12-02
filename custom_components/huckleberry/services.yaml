@@ -1,0 +1,342 @@
+start_sleep:
+  name: Start Sleep
+  description: Start a new sleep session.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+pause_sleep:
+  name: Pause Sleep
+  description: Pause the active sleep session without completing it.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+resume_sleep:
+  name: Resume Sleep
+  description: Resume a paused sleep session.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+cancel_sleep:
+  name: Cancel Sleep
+  description: Cancel the current sleep session (no interval saved).
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+complete_sleep:
+  name: Complete Sleep
+  description: Complete current sleep and save interval to history.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+start_feeding:
+  name: Start Feeding
+  description: Start breast feeding session on specified side.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+    side:
+      description: Which breast to start with (left or right)
+      example: left
+      default: left
+      required: false
+      selector:
+        select:
+          options:
+            - left
+            - right
+
+pause_feeding:
+  name: Pause Feeding
+  description: Pause the active feeding session.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+resume_feeding:
+  name: Resume Feeding
+  description: Resume a paused feeding session.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+switch_feeding_side:
+  name: Switch Feeding Side
+  description: Switch between left and right breast during feeding.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+cancel_feeding:
+  name: Cancel Feeding
+  description: Cancel current feeding (no history saved).
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+complete_feeding:
+  name: Complete Feeding
+  description: Complete current feeding and save to history.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+log_diaper_pee:
+  name: Log Diaper - Pee
+  description: Log a diaper change with pee only.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+log_diaper_poo:
+  name: Log Diaper - Poo
+  description: Log a diaper change with poo only.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+    color:
+      description: Poo color
+      required: false
+      selector:
+        select:
+          options:
+            - yellow
+            - green
+            - brown
+            - black
+            - red
+    consistency:
+      description: Poo consistency
+      required: false
+      selector:
+        select:
+          options:
+            - runny
+            - soft
+            - solid
+            - hard
+
+log_diaper_both:
+  name: Log Diaper - Both
+  description: Log a diaper change with both pee and poo.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+    color:
+      description: Poo color
+      required: false
+      selector:
+        select:
+          options:
+            - yellow
+            - green
+            - brown
+            - black
+            - red
+    consistency:
+      description: Poo consistency
+      required: false
+      selector:
+        select:
+          options:
+            - runny
+            - soft
+            - solid
+            - hard
+
+log_diaper_dry:
+  name: Log Diaper - Dry Check
+  description: Log a dry diaper check.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+
+log_growth:
+  name: Log Growth Measurements
+  description: Log child's weight, height, and head circumference measurements.
+  fields:
+    device_id:
+      description: Select child device
+      required: false
+      selector:
+        device:
+          integration: huckleberry
+    child_uid:
+      description: Child UID (optional, overrides device selection)
+      example: VZiSnxmU3KawWzsSLTqyuPTlsuX2
+      advanced: true
+      required: false
+    weight:
+      description: Weight measurement (kg for metric, lbs for imperial)
+      example: 5.2
+      required: false
+      selector:
+        number:
+          min: 0
+          max: 50
+          step: 0.01
+          mode: box
+    height:
+      description: Height/length measurement (cm for metric, inches for imperial)
+      example: 65.5
+      required: false
+      selector:
+        number:
+          min: 0
+          max: 200
+          step: 0.1
+          mode: box
+    head:
+      description: Head circumference measurement (cm for metric, inches for imperial)
+      example: 42.3
+      required: false
+      selector:
+        number:
+          min: 0
+          max: 100
+          step: 0.1
+          mode: box
+    units:
+      description: Unit system for measurements
+      default: metric
+      required: false
+      selector:
+        select:
+          options:
+            - metric
+            - imperial
