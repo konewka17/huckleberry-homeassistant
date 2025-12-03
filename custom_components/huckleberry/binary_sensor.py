@@ -195,8 +195,12 @@ class HuckleberryFeedingSensor(CoordinatorEntity, BinarySensorEntity):
             timer = feed_status.get("timer", {})
             prefs = feed_status.get("prefs", {})
 
-            if timer.get("active") and not timer.get("paused"):
-                # Currently feeding
+            # Track paused state
+            if timer.get("active"):
+                attrs["is_paused"] = timer.get("paused", False)
+
+            if timer.get("active"):
+                # Currently feeding (active or paused)
                 if "timestamp" in timer:
                     attrs["feeding_start"] = timer["timestamp"].get("seconds")
                 attrs["left_duration_seconds"] = timer.get("leftDuration", 0)
