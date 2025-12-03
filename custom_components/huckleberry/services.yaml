@@ -4,7 +4,7 @@ start_sleep:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -19,7 +19,7 @@ pause_sleep:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -34,7 +34,7 @@ resume_sleep:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -49,7 +49,7 @@ cancel_sleep:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -64,7 +64,7 @@ complete_sleep:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -80,7 +80,7 @@ start_feeding:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -106,7 +106,7 @@ pause_feeding:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -122,7 +122,7 @@ resume_feeding:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -138,7 +138,7 @@ switch_feeding_side:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -154,7 +154,7 @@ cancel_feeding:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -170,7 +170,7 @@ complete_feeding:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -186,7 +186,7 @@ log_diaper_pee:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -220,7 +220,7 @@ log_diaper_poo:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -275,7 +275,7 @@ log_diaper_both:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -339,7 +339,7 @@ log_diaper_dry:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry
@@ -364,7 +364,7 @@ log_growth:
   fields:
     device_id:
       description: Select child device
-      required: false
+      required: true
       selector:
         device:
           integration: huckleberry

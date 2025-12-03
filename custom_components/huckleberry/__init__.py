@@ -248,24 +248,29 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         await coordinator.async_request_refresh()
 
     service_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
     })
 
     feeding_start_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("side"): vol.In(["left", "right"]),
     })
 
     feeding_resume_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("side"): vol.In(["left", "right"]),
     })
 
     feeding_service_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
     })
 
     diaper_pee_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("pee_amount"): vol.In(["little", "medium", "big"]),
         vol.Optional("diaper_rash"): cv.boolean,
@@ -273,6 +278,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     })
 
     diaper_poo_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("poo_amount"): vol.In(["little", "medium", "big"]),
         vol.Optional("color"): vol.In(["yellow", "green", "brown", "black", "red"]),
@@ -282,6 +288,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     })
 
     diaper_both_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("pee_amount"): vol.In(["little", "medium", "big"]),
         vol.Optional("poo_amount"): vol.In(["little", "medium", "big"]),
@@ -292,12 +299,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     })
 
     diaper_dry_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("diaper_rash"): cv.boolean,
         vol.Optional("notes"): cv.string,
     })
 
     growth_schema = vol.Schema({
+        vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("weight"): vol.Coerce(float),
         vol.Optional("height"): vol.Coerce(float),
