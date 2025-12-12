@@ -320,15 +320,16 @@ class HuckleberrySleepSensor(HuckleberryBaseEntity, SensorEntity):
             if timer.get("active"):
                 attrs["is_paused"] = timer.get("paused", False)
 
-            if timer.get("active") and not timer.get("paused"):
-                # Currently sleeping
-                if "timestamp" in timer:
-                    attrs["sleep_start"] = timer["timestamp"].get("seconds")
                 # timerStartTime is in milliseconds for sleep tracking
                 if "timerStartTime" in timer:
                     attrs["timer_start_time_ms"] = timer.get("timerStartTime")
                     # Convert to seconds for chronometer (Home Assistant expects Unix timestamp)
                     attrs["timer_start_time"] = int(timer.get("timerStartTime") / 1000)
+
+            if timer.get("active") and not timer.get("paused"):
+                # Currently sleeping
+                if "timestamp" in timer:
+                    attrs["sleep_start"] = timer["timestamp"].get("seconds")
 
             # Last sleep info
             if "lastSleep" in prefs:
