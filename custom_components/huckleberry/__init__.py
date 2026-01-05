@@ -52,6 +52,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     api = HuckleberryAPI(
         email=entry.data["email"],
         password=entry.data["password"],
+        timezone=str(hass.config.time_zone),
     )
 
     # Authenticate
