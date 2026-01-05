@@ -1,11 +1,11 @@
 [project]
 name = "huckleberry-homeassistant"
-version = "0.3.1"
+version = "0.3.2"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "huckleberry-api>=0.1.15",
+    "huckleberry-api>=0.1.18",
 ]
 
 [dependency-groups]

@@ -162,7 +162,7 @@ The integration provides 17 device actions for use in device-based automations:
 
 - Home Assistant 2023.1 or newer
 - Huckleberry account with active subscription
-- `huckleberry-api>=0.1.10` (automatically installed)
+- `huckleberry-api>=0.1.18` (automatically installed)
 
 ## Support
 
