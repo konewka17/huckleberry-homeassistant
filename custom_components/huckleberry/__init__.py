@@ -177,10 +177,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         pee_amount = call.data.get("pee_amount")
         diaper_rash = call.data.get("diaper_rash", False)
         notes = call.data.get("notes")
-        is_potty = call.data.get("is_potty", False)
+        how_it_happened = call.data.get("how_it_happened")
+        is_potty = how_it_happened is not None
         _LOGGER.info("Logging pee diaper for child %s (amount=%s)", child_uid, pee_amount)
         await hass.async_add_executor_job(
-            api.log_diaper, child_uid, "pee", pee_amount, None, None, None, diaper_rash, is_potty, None, notes
+            api.log_diaper, child_uid, "pee", pee_amount, None, None, None, diaper_rash, is_potty, how_it_happened, notes
         )
 
     async def handle_log_diaper_poo(call):
@@ -194,11 +195,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         consistency = call.data.get("consistency")
         diaper_rash = call.data.get("diaper_rash", False)
         notes = call.data.get("notes")
-        is_potty = call.data.get("is_potty", False)
+        how_it_happened = call.data.get("how_it_happened")
+        is_potty = how_it_happened is not None
         _LOGGER.info("Logging poo diaper for child %s (amount=%s, color=%s, consistency=%s)",
                      child_uid, poo_amount, color, consistency)
         await hass.async_add_executor_job(
-            api.log_diaper, child_uid, "poo", None, poo_amount, color, consistency, diaper_rash, is_potty, None, notes
+            api.log_diaper, child_uid, "poo", None, poo_amount, color, consistency, diaper_rash, is_potty, how_it_happened, notes
         )
 
     async def handle_log_diaper_both(call):
@@ -213,10 +215,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         consistency = call.data.get("consistency")
         diaper_rash = call.data.get("diaper_rash", False)
         notes = call.data.get("notes")
-        is_potty = call.data.get("is_potty", False)
+        how_it_happened = call.data.get("how_it_happened")
+        is_potty = how_it_happened is not None
         _LOGGER.info("Logging both (pee+poo) diaper for child %s", child_uid)
         await hass.async_add_executor_job(
-            api.log_diaper, child_uid, "both", pee_amount, poo_amount, color, consistency, diaper_rash, is_potty, None, notes
+            api.log_diaper, child_uid, "both", pee_amount, poo_amount, color, consistency, diaper_rash, is_potty, how_it_happened, notes
         )
 
     async def handle_log_diaper_dry(call):
@@ -227,10 +230,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             return
         diaper_rash = call.data.get("diaper_rash", False)
         notes = call.data.get("notes")
-        is_potty = call.data.get("is_potty", False)
+        how_it_happened = call.data.get("how_it_happened")
+        is_potty = how_it_happened is not None
         _LOGGER.info("Logging dry diaper check for child %s", child_uid)
         await hass.async_add_executor_job(
-            api.log_diaper, child_uid, "dry", None, None, None, None, diaper_rash, is_potty, None, notes
+            api.log_diaper, child_uid, "dry", None, None, None, None, diaper_rash, is_potty, how_it_happened, notes
         )
 
     async def handle_log_growth(call):
@@ -294,7 +298,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         vol.Optional("child_uid"): cv.string,
         vol.Optional("pee_amount"): vol.In(["little", "medium", "big"]),
         vol.Optional("diaper_rash"): cv.boolean,
-        vol.Optional("is_potty"): cv.boolean,
+        vol.Optional("how_it_happened"): vol.In(["wentPotty", "accident", "satButDry"]),
         vol.Optional("notes"): cv.string,
     })
 
@@ -305,7 +309,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         vol.Optional("color"): vol.In(["yellow", "brown", "black", "green", "red", "gray"]),
         vol.Optional("consistency"): vol.In(["solid", "loose", "runny", "mucousy", "hard", "pebbles", "diarrhea"]),
         vol.Optional("diaper_rash"): cv.boolean,
-        vol.Optional("is_potty"): cv.boolean,
+        vol.Optional("how_it_happened"): vol.In(["wentPotty", "accident", "satButDry"]),
         vol.Optional("notes"): cv.string,
     })
 
@@ -317,7 +321,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         vol.Optional("color"): vol.In(["yellow", "brown", "black", "green", "red", "gray"]),
         vol.Optional("consistency"): vol.In(["solid", "loose", "runny", "mucousy", "hard", "pebbles", "diarrhea"]),
         vol.Optional("diaper_rash"): cv.boolean,
-        vol.Optional("is_potty"): cv.boolean,
+        vol.Optional("how_it_happened"): vol.In(["wentPotty", "accident", "satButDry"]),
         vol.Optional("notes"): cv.string,
     })
 
@@ -325,7 +329,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         vol.Required("device_id"): cv.string,
         vol.Optional("child_uid"): cv.string,
         vol.Optional("diaper_rash"): cv.boolean,
-        vol.Optional("is_potty"): cv.boolean,
+        vol.Optional("how_it_happened"): vol.In(["wentPotty", "accident", "satButDry"]),
         vol.Optional("notes"): cv.string,
     })
 
