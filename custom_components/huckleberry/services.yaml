@@ -260,12 +260,16 @@ log_diaper_pee:
       required: false
       selector:
         boolean:
-    is_potty:
-      name: Is potty
-      description: Whether log is potty or diaper
+    how_it_happened:
+      name: How it happened
+      description: Whether log is potty, accident, or sat but dry
       required: false
       selector:
-        boolean:
+        select:
+          options:
+            - wentPotty
+            - accident
+            - satButDry
     notes:
       name: Notes
       description: Optional notes about this diaper change
@@ -336,12 +340,16 @@ log_diaper_poo:
       required: false
       selector:
         boolean:
-    is_potty:
-      name: Is potty
-      description: Whether log is potty or diaper
+    how_it_happened:
+      name: How it happened
+      description: Whether log is potty, accident, or sat but dry
       required: false
       selector:
-        boolean:
+        select:
+          options:
+            - wentPotty
+            - accident
+            - satButDry
     notes:
       name: Notes
       description: Optional notes about this diaper change
@@ -422,12 +430,16 @@ log_diaper_both:
       required: false
       selector:
         boolean:
-    is_potty:
-      name: Is potty
-      description: Whether log is potty or diaper
+    how_it_happened:
+      name: How it happened
+      description: Whether log is potty, accident, or sat but dry
       required: false
       selector:
-        boolean:
+        select:
+          options:
+            - wentPotty
+            - accident
+            - satButDry
     notes:
       name: Notes
       description: Optional notes about this diaper change
@@ -461,12 +473,16 @@ log_diaper_dry:
       required: false
       selector:
         boolean:
-    is_potty:
-      name: Is potty
-      description: Whether log is potty or diaper
+    how_it_happened:
+      name: How it happened
+      description: Whether log is potty, accident, or sat but dry
       required: false
       selector:
-        boolean:
+        select:
+          options:
+            - wentPotty
+            - accident
+            - satButDry
     notes:
       name: Notes
       description: Optional notes about this diaper check
